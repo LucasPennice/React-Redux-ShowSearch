@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;300;400;500&display=swap');
+$blue: #3d5a80; //BdazzledBlue
+$light-blue: #98c1d9; //PaleCerulean
+$lightest-blue: #e0fbfc; //LightCyan
+$orange: #e2390e; //BurntSienna
+$orange2: #ff3401; //BurntSienna
+$dark-gray: #293241; //Gunmetal
+@import 'animations';
+@import 'loadingScreen';
+@import 'searchbar';
+@import 'header';
+@import 'home';
+//
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'IBM Plex Mono', monospace;
+	font-weight: 400;
+}
+
+.appDiv {
+	overflow-x: hidden;
+	height: 100vh;
+	width: 100vw;
+}
+
+//
+
+.searchComponentDiv {
+	width: 100vw;
+	height: calc(100vh - 4rem);
+	position: relative;
+	.searchContentDiv {
+		padding: clamp(1rem, 10vw, 3rem);
+		overflow-y: scroll;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2rem;
+		justify-content: center;
+		align-items: center;
+		animation: appearOpacity 0.2s forwards 4.3s;
+
+		.card {
+			width: clamp(9.6rem, 24vw, 12rem);
+			height: clamp(13.6rem, 34vw, 17rem);
+			position: relative;
+			border: 5px solid $blue;
+			color: transparent;
+			cursor: pointer;
+			opacity: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			transition: 0.2s;
+			animation: appearOpacity 0.5s forwards;
+			&::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 0%;
+				height: 100%;
+				background-color: #29324133;
+				transition: 0.2s;
+			}
+
+			&:hover {
+				border: 5px solid $dark-gray;
+				transform: scale(1.01);
+			}
+			&:hover::before {
+				animation: appearOpacity 0.5s forwards;
+				width: 100%;
+			}
+		}
+	}
+}
+
+.pleaseEndMe {
+	text-align: center;
+	margin-top: 1rem;
+	font-size: clamp(0.5rem, 4vw, 1.5rem);
+}
+.circle {
+	width: clamp(2rem, 30vw, 20rem);
+	height: clamp(2rem, 30vw, 20rem);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: $dark-gray;
+	border-radius: 50%;
+	animation: growPermanent 1s forwards 4s;
+
+	.loadingContainer {
+		width: 60%;
+		height: 50%;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		transform: rotateZ(90deg);
+		.loading {
+			width: 20%;
+			height: 0;
+			bottom: 0;
+			border-radius: 5px;
+			background-color: $orange;
+
+			&:nth-of-type(1) {
+				background-color: teal;
+				animation: growUp 3s forwards 1.5s infinite;
+			}
+			&:nth-of-type(2) {
+				background-color: $lightest-blue;
+				animation: growUp 3s forwards 1.6s infinite;
+			}
+			&:nth-of-type(3) {
+				background-color: $orange;
+				animation: growUp 3s forwards 1.7s infinite;
+			}
+		}
+	}
+}
+
+////
+
+.showDetailsComponent {
+	width: 100vw;
+	height: 0%;
+	background-color: rgba(128, 128, 128, 0.534);
+	z-index: 1;
+	position: absolute;
+	color: black;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	gap: 2rem;
+	transition: 0.2s;
+	animation: detailsAppear 0.5s ease-in-out forwards;
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 0%;
+		top: 0;
+		z-index: -1;
+		background-color: rgba(255, 255, 255, 0.849);
+		animation: detailsAppear 0.5s ease-in-out forwards 0.1s;
+	}
+
+	.animateDetail {
+		position: relative;
+		border-radius: 2px;
+		line-height: 30px;
+		letter-spacing: 2px;
+		cursor: default;
+		font-weight: 500;
+		opacity: 0;
+		animation: appearOpacity 0.8s forwards 0.5s;
+
+		&::before {
+			content: '';
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			animation: removeColor 0.8s forwards 1s;
+			background-color: $dark-gray;
+		}
+	}
+	.showDetailsContainer {
+		padding: 3rem 3rem;
+		width: 100vw;
+		height: 100%;
+		overflow-y: scroll;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		gap: 2.5rem;
+
+		.detailTitle {
+			transition: 0.2s;
+			padding: 0.5rem 1rem;
+			cursor: pointer;
+			background-color: $dark-gray;
+			border: 1px solid $dark-gray;
+
+			&:hover {
+				background-color: white;
+				border: 1px solid $dark-gray;
+			}
+
+			&:hover a {
+				color: $dark-gray;
+			}
+			a {
+				transition: 0.2s;
+				text-decoration: none;
+				font-size: 2rem;
+				color: white;
+			}
+		}
+
+		.showScore {
+			background-color: #293241d0;
+			color: white;
+			font-size: 1.5rem;
+			font-weight: 500;
+			width: fit-content;
+			margin: 0 auto;
+			padding: 0.5rem 1rem;
+		}
+
+		.genreDetailContainer {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			gap: 0.2rem;
+			.genreDetail {
+				border: 2px solid #29324180;
+				padding: 0.5rem;
+				cursor: default;
+				transition: 0.2s;
+
+				&:not(:last-of-type) {
+					margin-right: 1rem;
+				}
+
+				&:hover {
+					color: black;
+					background-color: white;
+				}
+			}
+		}
+
+		.detailsImage {
+			border: 5px solid white;
+			width: 200px;
+			opacity: 0;
+			animation: appearOpacity 0.8s forwards 0.5s;
+		}
+
+		.closeDetailsBtn {
+			position: absolute;
+			color: white;
+			border: none;
+			width: 30px;
+			height: 30px;
+			top: 10px;
+			left: 10px;
+			background-color: $dark-gray;
+			order: 1px solid white;
+			transition: 0.2s;
+
+			&:hover {
+				color: $dark-gray;
+				background-color: white;
+				border: 1px solid $dark-gray;
+			}
+		}
+	}
+}
+
+@media (min-width: 1000px) {
+	.showDetailsContainer {
+		justify-content: center;
+	}
+}
+
+@keyframes detailsAppear {
+	from {
+		height: 0%;
+	}
+	to {
+		height: 100%;
+	}
+}

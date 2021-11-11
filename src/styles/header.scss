@@ -1,0 +1,202 @@
+.headerDiv {
+	background-color: $dark-gray;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 4rem;
+	width: 0;
+	padding-left: clamp(0.1px, 3vw, 2rem);
+	padding-right: clamp(0.1px, 3vw, 2rem);
+	position: relative;
+	animation: navBarBefore 0.5s forwards ease-in-out 0.6s;
+
+	&::before {
+		content: '';
+		background-color: $light-blue;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 4rem;
+		width: 0;
+		z-index: -1;
+		animation: navBarBefore 0.6s forwards ease-in-out 0.3s;
+	}
+
+	.links {
+		font-size: clamp(1rem, 1vw, 1.2rem);
+		text-decoration: none;
+		color: white;
+		cursor: pointer;
+		position: relative;
+		opacity: 0;
+		animation: appearFromRight 0.2s forwards 1.1s;
+
+		&::before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 1px;
+			width: 8px;
+			background-color: white;
+			transition: 0.2s ease-in-out;
+		}
+
+		&:hover::before {
+			width: 100%;
+		}
+	}
+
+	.linksContainer {
+		display: flex;
+		gap: clamp(1rem, 10vw, 8rem);
+		justify-content: space-between;
+	}
+
+	.contactMenu {
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		position: absolute;
+		right: 30px;
+		top: 5.2rem;
+		gap: 0.5rem;
+		padding: 1rem;
+		background-color: $light-blue;
+		animation: contactMenu 0.2s forwards;
+		width: 0px;
+		height: 120px;
+		transition: 0.4s;
+
+		&::before {
+			content: '';
+			background-color: $dark-gray;
+			position: absolute;
+			right: 0;
+			animation: contactMenu 0.4s forwards 0.2s;
+			top: 0;
+			width: 0px;
+			height: 100%;
+			z-index: -1;
+		}
+		a {
+			text-decoration: none;
+			color: white;
+			cursor: pointer;
+			position: relative;
+			opacity: 0;
+			&:nth-of-type(1) {
+				animation: appearFromRight 0.2s forwards 0.6s;
+			}
+			&:nth-of-type(2) {
+				animation: appearFromRight 0.2s forwards 0.7s;
+			}
+			&:nth-of-type(3) {
+				animation: appearFromRight 0.2s forwards 0.8s;
+			}
+			&::before {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				height: 1px;
+				width: 8px;
+				background-color: white;
+				transition: 0.2s ease-in-out;
+			}
+			&:hover::before {
+				width: 80%;
+			}
+		}
+	}
+
+	.tinyMenuIcon {
+		display: none;
+		cursor: pointer;
+		transition: 0.2s;
+		opacity: 0;
+		animation: appearFromRight 0.2s forwards 1.2s;
+
+		&:hover {
+			transform: scale(0.95);
+		}
+
+		.icon {
+			margin-top: 0.2rem;
+			color: white;
+			font-size: clamp(1rem, 8vw, 2rem);
+		}
+	}
+	.tinyMenu {
+		display: flex;
+		flex-direction: column;
+		position: absolute;
+		right: 30px;
+		top: 5.2rem;
+		z-index: 2;
+		gap: 0.5rem;
+		animation: contactMenu 0.2s forwards;
+		padding: 1rem;
+		width: 0px;
+		background-color: $light-blue;
+		height: 160px;
+		transition: 0.4s;
+
+		&::before {
+			animation: contactMenu 0.4s forwards 0.2s;
+			background-color: $dark-gray;
+			content: '';
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 0px;
+			height: 100%;
+			z-index: -1;
+		}
+		a,
+		Link {
+			text-decoration: none;
+			color: white;
+			cursor: pointer;
+			position: relative;
+			opacity: 0;
+			&:nth-of-type(1) {
+				animation: appearFromRight 0.2s forwards 0.6s;
+			}
+			&:nth-of-type(2) {
+				animation: appearFromRight 0.2s forwards 0.7s;
+			}
+			&:nth-of-type(3) {
+				animation: appearFromRight 0.2s forwards 0.8s;
+			}
+			&:nth-of-type(4) {
+				animation: appearFromRight 0.2s forwards 0.9s;
+			}
+			&::before {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				height: 1px;
+				width: 8px;
+				background-color: white;
+				transition: 0.2s ease-in-out;
+			}
+			&:hover::before {
+				width: 80%;
+			}
+		}
+	}
+
+	@media (max-width: 600px) {
+		.linksContainer {
+			display: none;
+		}
+		.tinyMenuIcon {
+			display: block;
+		}
+	}
+}
+.hide {
+	display: none;
+}

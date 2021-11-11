@@ -1,0 +1,161 @@
+@keyframes appearFromLeft {
+	from {
+		opacity: 0;
+		transform: translateX(-20px);
+		-webkit-filter: blur(5px);
+		-moz-filter: blur(5px);
+		-o-filter: blur(5px);
+		-ms-filter: blur(5px);
+		filter: blur(5px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0px);
+		-webkit-filter: blur(0px);
+		-moz-filter: blur(0px);
+		-o-filter: blur(0px);
+		-ms-filter: blur(0px);
+		filter: blur(0px);
+	}
+}
+
+@keyframes appearFromRight {
+	from {
+		opacity: 0;
+		transform: translateX(20px);
+		-webkit-filter: blur(5px);
+		-moz-filter: blur(5px);
+		-o-filter: blur(5px);
+		-ms-filter: blur(5px);
+		filter: blur(5px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0px);
+		-webkit-filter: blur(0px);
+		-moz-filter: blur(0px);
+		-o-filter: blur(0px);
+		-ms-filter: blur(0px);
+		filter: blur(0px);
+	}
+}
+
+@keyframes navBarBefore {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100vw;
+	}
+}
+@keyframes contactMenu {
+	from {
+		width: 0;
+	}
+	to {
+		width: 270px;
+	}
+}
+
+@keyframes contactMenuBf {
+	from {
+		width: 0;
+	}
+	to {
+		width: 270px;
+		opacity: 0;
+	}
+}
+
+@keyframes removeColor {
+	from {
+		width: 100%;
+	}
+	to {
+		width: 0px;
+	}
+}
+
+@keyframes appearOpacity {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes loadingScreen {
+	from {
+		width: 0;
+	}
+	15% {
+		width: 100vw;
+	}
+	80% {
+		width: 100vw;
+	}
+	to {
+		width: 0;
+	}
+}
+@keyframes loadingScreenBefore {
+	from {
+		width: 0;
+	}
+	15% {
+		width: 100vw;
+	}
+	90% {
+		width: 100vw;
+	}
+	to {
+		width: 0;
+	}
+}
+
+@keyframes growUp {
+	from {
+		height: 0;
+	}
+	50% {
+		height: 100%;
+	}
+	to {
+		height: 0;
+	}
+}
+
+@keyframes growOutside {
+	from {
+		transform: scale(0);
+		opacity: 1;
+	}
+	50% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	to {
+		opacity: 1;
+		transform: scale(0);
+	}
+}
+@keyframes growPermanent {
+	from {
+		transform: scale(0);
+		opacity: 1;
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes cardAppear {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
+}

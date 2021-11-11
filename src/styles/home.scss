@@ -1,0 +1,69 @@
+.componentDiv {
+	width: 100vw;
+	height: calc(100vh - 4rem);
+	position: relative;
+	.contentDiv {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		animation: appearOpacity 0.2s forwards 4.3s;
+		//Standard
+		background-color: white;
+		color: $dark-gray;
+		padding: clamp(1rem, 10vw, 20rem);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		gap: 2rem;
+		font-size: clamp(0.8rem, 2vw, 1.5rem);
+
+		p {
+			cursor: default;
+			position: relative;
+			&:nth-of-type(1) {
+				&::before {
+					animation: removeColor 0.8s forwards 4.5s;
+				}
+			}
+			&:nth-of-type(2) {
+				&::before {
+					animation: removeColor 0.8s forwards 4.6s;
+				}
+			}
+			&:nth-of-type(3) {
+				&::before {
+					animation: removeColor 0.8s forwards 4.7s;
+				}
+			}
+			&:nth-of-type(4) {
+				&::before {
+					animation: removeColor 0.8s forwards 4.8s;
+				}
+			}
+
+			&::before {
+				content: '';
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-color: $dark-gray;
+			}
+
+			a {
+				color: $orange;
+				text-decoration: none;
+				transition: 0.2s;
+
+				&:hover {
+					background-color: $dark-gray;
+				}
+			}
+		}
+	}
+}
