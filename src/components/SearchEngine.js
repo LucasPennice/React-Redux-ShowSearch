@@ -44,7 +44,7 @@ export default () => {
 	};
 	return (
 		<div className="searchComponentDiv">
-			<LoadingScreen />
+			{/* <LoadingScreen /> */}
 			<div className="searchContentDiv">
 				{showsArray.length !== 0 ? (
 					RenderShows(showsArray)
