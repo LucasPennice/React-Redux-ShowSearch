@@ -29,18 +29,18 @@ export default ({ isDetailsOpen, setIsDetailsOpen }) => {
 		};
 	}, [timeoutId]);
 
-	const clearString = (pain) => {
+	const clearString = (text) => {
 		let clean = '';
 		if (summary !== null) {
 			let dontCopy = false;
-			for (let i = 0; i < pain.length; i++) {
-				if (pain[i] === '<') {
+			for (let i = 0; i < text.length; i++) {
+				if (text[i] === '<') {
 					dontCopy = true;
 				}
 				if (dontCopy === false) {
-					clean += pain[i];
+					clean += text[i];
 				}
-				if (pain[i] === '>') {
+				if (text[i] === '>') {
 					dontCopy = false;
 				}
 			}

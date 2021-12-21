@@ -8,7 +8,7 @@ export default () => {
 					<div className="loading"></div>
 				</div>
 			</div>
-			<p className="pleaseEndMe">Search a show</p>
+			<p className="loadingIconMessage">Search a show</p>
 		</div>
 	);
 };
